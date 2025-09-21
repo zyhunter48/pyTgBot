@@ -37,7 +37,7 @@ def callback_commands(callback):
                 remake_city += "е"
 
             bot.send_message(message.chat.id, "Сегодня в " + remake_city.title() + f" {weather.text.strip()}")
-            
+
 
 @bot.message_handler(commands=['currency'])
 def currency_command(message):
