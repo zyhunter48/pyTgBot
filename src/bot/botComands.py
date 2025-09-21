@@ -1,5 +1,6 @@
 from telebot import types
 import requests
+from transliterate import translit, get_available_language_codes
 from bs4 import BeautifulSoup
 
 def start_command():
@@ -29,11 +30,11 @@ def cur():
         return None
 
     ctf = ["Доллар США", "Евро", "Тенге"]
-    result = []
+    currency_result = []
 
     for cur_name in ctf:
         rate_data = get_currency(cur_name)
         if rate_data:
-            result.append(f"   {rate_data['name']} — {rate_data['rate']} руб.")
+            currency_result.append(f"   {rate_data['name']} - {rate_data['rate']} руб.")
             
-    return '\n \n'.join(result)
+    return '\n \n'.join(currency_result)
